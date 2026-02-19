@@ -1,0 +1,86 @@
+body {
+  font-family: Arial, sans-serif;
+  /* use yellow to test, change later */
+  background: linear-gradient(to right, #f0f0f0, #e6e6e6);
+  margin: 2rem;
+  color: #333;
+}
+
+h1 {
+  color: #336699;
+  margin-top: 1rem;
+}
+
+/* Navigation bar styling */
+nav {
+  display: flex;
+  justify-content: center;       /* centers the links horizontally */
+  background-color: #e6e6e6;     /* light grey background */
+  padding: 0.75rem 0;            /* space above/below links */
+  border-radius: 8px;            /* soft rounded corners */
+  margin-bottom: 1.5rem;         /* space below the nav bar */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav a {
+  text-decoration: none;
+  color: #336699;
+  font-weight: bold;
+  margin: 0 1rem;                /* space between links */
+  padding: 0.3rem 0.6rem;        /* space inside each link */
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s; /* smooth hover effect */
+}
+
+nav a:hover {
+  color: white;
+  background-color: #336699;
+}
+
+/* Highlight current page link */
+nav a.active {
+  color: white;
+  background-color: #336699;
+}
+/* ===== Projects grid ===== */
+
+.projects-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.project-card {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  max-width: 300px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.project-card img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+}
+
+.project-card h2 {
+  color: #336699;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-card p {
+  color: #555;
+  font-size: 0.95rem;
+}

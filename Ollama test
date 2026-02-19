@@ -1,0 +1,46 @@
+"""
+ollama_test.py
+Test a local Ollama LLM from Python (e.g. phi3, mistral, llama3)
+Ensure Ollama is installed and running locally first:
+    https://ollama.com/download
+Then run:
+    python ollama_test.py
+"""
+
+import json
+import requests
+
+def query_ollama(model: str, prompt: str) -> str:
+    """
+    Send a prompt to the local Ollama API and return the generated text.
+    """
+    url = "http://localhost:11434/api/generate"
+    payload = {"model": model, "prompt": prompt}
+    
+    try:
+        response = requests.post(url, json=payload, stream=True)
+        response.raise_for_status()
+
+        output = ""
+        for line in response.iter_lines():
+            if line:
+                data = json.loads(line)
+                if "response" in data:
+                    output += data["response"]
+        return output.strip()
+
+    except requests.exceptions.RequestException as e:
+        return f"Error communicating with Ollama: {e}"
+
+if __name__ == "__main__":
+    model = "phi3"        # try "mistral" or "llama3" too
+    prompt = (
+        "Summarise this email:\n\n"
+        "Dear Paul,\nPlease find attached the October invoice for services "
+        "rendered. Payment is due within 14 days.\nKind regards,\nSarah"
+    )
+
+    print(f"🧠 Using local model: {model}\n")
+    result = query_ollama(model, prompt)
+    print("💬 Model output:\n")
+    print(result)
