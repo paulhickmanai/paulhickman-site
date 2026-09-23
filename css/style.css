@@ -287,6 +287,29 @@ h1{
 .cta-actions{ display:flex; gap:12px; flex-wrap:wrap; margin-top:12px; }
 .micro{ margin:14px 0 0; color:var(--muted); font-size:13px; font-weight:650; max-width:70ch; }
 
+.contact-form{ margin-top:18px; max-width:620px; }
+.form-row{ margin:0 0 14px; }
+.form-row label{ display:block; margin-bottom:6px; color:var(--ink); font-weight:750; }
+.form-row label span{ color:var(--muted); font-weight:600; }
+.form-row input,
+.form-row textarea{
+  display:block;
+  width:100%;
+  padding:11px 12px;
+  color:var(--ink);
+  font:inherit;
+  line-height:1.4;
+  background:#fff;
+  border:1px solid rgba(42,93,134,.30);
+  border-radius:10px;
+}
+.form-row textarea{ resize:vertical; }
+.form-row input:focus,
+.form-row textarea:focus{ outline:3px solid rgba(26,138,152,.22); border-color:var(--brand); }
+.form-trap{ position:absolute; left:-10000px; width:1px; height:1px; overflow:hidden; }
+.contact-alternative{ margin:14px 0 0; color:var(--muted); font-weight:650; }
+.contact-alternative a{ color:var(--brand2); text-decoration:underline; }
+
 .contact-card{
   background:rgba(255,255,255,.78);
   border:1px solid var(--line);
@@ -324,6 +347,12 @@ h1{
 }
 
 @media (max-width: 520px){
-  .nav{ gap:10px; }
+  .header-inner{ align-items:center; }
+  .brand-logo{ width:40px; height:40px; }
+  .brand-name{ font-size:17px; }
+  .brand-sub{ font-size:12px; }
+  .nav{ gap:0; }
+  .nav a:not(.btn){ display:none; }
+  .nav .btn{ padding:10px 12px; font-size:13px; }
   .grid-4{ grid-template-columns:1fr; }
 }
